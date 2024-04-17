@@ -6,9 +6,18 @@
         
         <asp:GridView ID="AccountDetailsGrid" runat="server" AutoGenerateColumns="False" CssClass="table">
             <Columns>
-                <asp:BoundField DataField="AccountNumber" HeaderText="Account Number" />
+                <asp:BoundField DataField="AccountID" HeaderText="Account Number" />
                 <asp:BoundField DataField="AccountType" HeaderText="Account Type" />
                 <asp:BoundField DataField="Balance" HeaderText="Current Balance" />
+            </Columns>
+        </asp:GridView>
+
+        <h3>Linked Accounts</h3>
+        <asp:GridView ID="LinkedAccountsGrid" runat="server" AutoGenerateColumns="False" CssClass="table" EmptyDataText="You have no linked accounts.">
+            <Columns>
+                <asp:BoundField DataField="AccountID" HeaderText="Account Number" />
+                <asp:BoundField DataField="AccountType" HeaderText="Account Type" />
+                <asp:BoundField DataField="Service" HeaderText="Service" />
             </Columns>
         </asp:GridView>
     </main>
