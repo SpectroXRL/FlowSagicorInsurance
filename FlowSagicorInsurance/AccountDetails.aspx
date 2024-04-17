@@ -16,7 +16,6 @@
         <asp:GridView ID="LinkedAccountsGrid" runat="server" AutoGenerateColumns="False" CssClass="table" EmptyDataText="You have no linked accounts.">
             <Columns>
                 <asp:BoundField DataField="AccountID" HeaderText="Account Number" />
-                <asp:BoundField DataField="AccountType" HeaderText="Account Type" />
                 <asp:BoundField DataField="Service" HeaderText="Service" />
             </Columns>
         </asp:GridView>
