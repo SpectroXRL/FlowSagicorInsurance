@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.Routing;
 using Microsoft.AspNet.FriendlyUrls;
+using System.Web.Http;
+using System.Web.Routing;
 
 namespace FlowSagicorInsurance
 {
@@ -10,6 +8,7 @@ namespace FlowSagicorInsurance
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            // Enable Friendly URLs for Web Forms pages
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
