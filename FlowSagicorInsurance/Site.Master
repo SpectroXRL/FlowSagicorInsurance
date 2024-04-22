@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +14,7 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+     <link rel="stylesheet" type="text/css" href="~/StyleSheet1.css">
 </head>
 <body>
     <form runat="server">
@@ -36,9 +37,9 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light" style="background-color: #004a99 !important;">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">NCB Online Bill Payment</a>
+                <a class="navbar-brand navbar-collapse" runat="server" href="~/"><img src="/Images/logo.png" alt="Logo" style="width:80px;"></a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -48,27 +49,30 @@
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/AccountDetails">Account Details</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/LinkAccount">Link Account</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/MakePayment">Make a Payment</a></li>
-                         <li class="nav-item"><a class="nav-link" runat="server" href="~/TransactionHistory">Transaction History</a></li>
                     </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="navbar-nav navbar-right">
-                                <li><a runat="server" class="nav-link" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" class="nav-link" href="~/Account/Login">Log in</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="navbar-nav navbar-right">
-                                <li><a runat="server" class="nav-link" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" CssClass="nav-link" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+                   <asp:LoginView runat="server" ViewStateMode="Disabled">
+    <AnonymousTemplate>
+        <ul class="navbar-nav navbar-right">
+            <li><a runat="server" class="nav-link" href="~/Account/Register">Register</a></li>
+            <li><a runat="server" class="nav-link" href="~/Account/Login">Log in</a></li>
+        </ul>
+    </AnonymousTemplate>
+    <LoggedInTemplate>
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item"><a class="nav-link" runat="server" href="~/AccountDetails">Account Details</a></li>
+            <li class="nav-item"><a class="nav-link" runat="server" href="~/LinkAccount">Link Account</a></li>
+            <li class="nav-item"><a class="nav-link" runat="server" href="~/MakePayment">Make a Payment</a></li>
+            <li class="nav-item"><a class="nav-link" runat="server" href="~/TransactionHistory">Transaction History</a></li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+            <li><a runat="server" class="nav-link" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+            <li>
+                <asp:LoginStatus runat="server" CssClass="nav-link" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+            </li>
+        </ul>
+    </LoggedInTemplate>
+</asp:LoginView>
+
                 </div>
             </div>
         </nav>

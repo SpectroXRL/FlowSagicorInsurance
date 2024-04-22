@@ -23,7 +23,7 @@ namespace FlowSagicorInsurance
             string type = DropDownList1.SelectedValue.ToString();
             if (accountExist.IfAccountExist(accountID, type))
             {
-                if(ifUserIsEmpty(accountID, type))
+                if (ifUserIsEmpty(accountID, type))
                 {
                     updateAccount(accountID, type);
                 }
@@ -31,9 +31,11 @@ namespace FlowSagicorInsurance
                 {
                     Response.Write("<script>alert('Account Already Linked');</script>");
                 }
-
-            };
-
+            }
+            else
+            {
+                Response.Write("<script>alert('No Account Found');</script>");
+            }
         }
 
         bool ifUserIsEmpty(string accountID, string type)
