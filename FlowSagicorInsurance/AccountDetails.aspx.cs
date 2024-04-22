@@ -44,7 +44,7 @@ namespace FlowSagicorInsurance
             string constr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT AccountID, 'FLOW' as Service FROM FlowAccount WHERE AspNetUserID = @AspNetUserID UNION SELECT AccountID, 'SAGICOR LIFE' as Service FROM SagicorAccount WHERE AspNetUserID = @AspNetUserID"))
+                using (SqlCommand cmd = new SqlCommand("SELECT AccountID, Balance, 'FLOW' as Service FROM FlowAccount WHERE AspNetUserID = @AspNetUserID UNION SELECT AccountID, Balance, 'SAGICOR LIFE' as Service FROM SagicorAccount WHERE AspNetUserID = @AspNetUserID"))
                 {
                     cmd.Parameters.AddWithValue("@AspNetUserID", Context.User.Identity.GetUserId());
                     using (SqlDataAdapter sda = new SqlDataAdapter())
